@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aurora nền cho DARK mode: gradient tối xanh → than → tím, cùng góc 135° với bản sáng. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#10192B"
+        android:centerColor="#0E1116"
+        android:endColor="#1A1030"
+        android:type="linear" />
+</shape>

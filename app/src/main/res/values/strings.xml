@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">navis_test</string>
+    <string name="app_name">CANtrolX</string>
+    <string name="toggle_dark_mode">Bật/tắt chế độ tối</string>
     <string name="title_vehicle_status">Trạng thái xe</string>
     <string name="title_door_status">Cửa</string>
     <string name="title_climate_status">Điều hoà</string>
@@ -8,17 +9,49 @@
     <string name="title_light_switch">Bật/Tắt đèn</string>
     <string name="title_diagnostics">Chẩn đoán hệ thống</string>
     <string name="title_vin_id">VIN ID</string>
-    <string name="title_advanced_settings">Cài đặt nâng cao</string>
-    <string name="title_warning_threshold">Ghi ngưỡng cảnh báo</string>
-    <string name="hint_threshold">Nhập ngưỡng&#8230;</string>
-    <string name="btn_save">LƯU</string>
+    <string name="btn_read_vin">ĐỌC</string>
+    <string name="vin_not_read">Chưa đọc</string>
+    <string name="vin_reading">Đang đọc…</string>
+    <string name="vin_read_failed">Đọc thất bại</string>
+    <string name="title_warning_threshold">Ngưỡng cảnh báo</string>
+    <string name="hint_threshold">0-100</string>
+    <string name="btn_save">GHI</string>
+    <string name="msg_write_success">Ghi thành công</string>
+    <string name="msg_write_failed">Ghi thất bại - Mã lỗi: %s</string>
+    <string name="msg_threshold_readback">Ghi thành công — ECU đang giữ ngưỡng = %1$d</string>
     <string name="btn_normal">NORMAL</string>
     <string name="btn_blink">BLINK</string>
     <string name="fuel_status_normal">Bình thường</string>
-    <string name="fuel_status_warning">Cảnh báo</string>
+    <string name="fuel_status_warning">Nhiên liệu thấp</string>
     <string name="door_locked">Đã Khoá</string>
     <string name="door_unlocked">Đã Mở</string>
     <string name="climate_on">Đang Bật</string>
     <string name="climate_off">Đang Tắt</string>
     <string name="error_light_command">Gửi lệnh điều khiển đèn thất bại</string>
+    <string name="light_state_on">Đèn đang bật</string>
+    <string name="light_state_off">Đèn đang tắt</string>
+    <string name="light_mode_solid">Đèn luôn sáng</string>
+    <string name="light_mode_blink">Đèn nhấp nháy</string>
+
+    <!-- CAN monitor + debug screen -->
+    <string name="title_can_monitor">CAN Monitor</string>
+    <string name="can_rx_placeholder">RX  --</string>
+    <string name="can_tx_placeholder">TX  --</string>
+    <string name="status_online">ONLINE</string>
+    <string name="status_offline">không kết nối</string>
+    <string name="status_error">LỖI</string>
+    <string name="title_can_debug">Gỡ lỗi CAN</string>
+    <string name="title_can_send">Gửi gói tin</string>
+    <string name="title_can_log">Nhật ký CAN</string>
+    <string name="hint_can_id">CAN ID (hex), VD: 3A6</string>
+    <string name="hint_can_data">DATA (hex, cách nhau bởi dấu cách), VD: 01 02 03</string>
+    <string name="label_extended_frame">Khung mở rộng (29-bit)</string>
+    <string name="btn_can_send">GỬI</string>
+    <string name="btn_clear_log">XOÁ LOG</string>
+    <string name="btn_start_reading">BẮT ĐẦU ĐỌC</string>
+    <string name="btn_stop_reading">DỪNG ĐỌC</string>
+    <string name="error_can_id_invalid">CAN ID không hợp lệ</string>
+    <string name="error_can_data_invalid">DATA không hợp lệ</string>
+    <string name="msg_can_send_failed">Gửi gói tin thất bại</string>
+    <string name="btn_back">Quay lại</string>
 </resources>

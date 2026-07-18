@@ -22,4 +22,5 @@
     <color name="glass_sheen_end">#00FFFFFF</color>
     <color name="outline_variant">#DCE2EC</color>
     <color name="warning_red">#FF453A</color>
+    <color name="switch_track_off">#9298A6</color> <!-- darker gray so the toggle stands out off the light glass background -->
 </resources>

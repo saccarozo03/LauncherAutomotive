@@ -33,7 +33,102 @@
                 android:padding="24dp"
                 android:contentDescription="@string/title_car_model"
                 android:scaleType="fitCenter"
-                android:src="@drawable/tesla" />
+                android:src="@drawable/ferrari" />
+
+            <ImageButton
+                android:id="@+id/btnOpenCanDebug"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp"
+                android:background="@drawable/glass_panel"
+                android:elevation="4dp"
+                android:padding="8dp"
+                android:contentDescription="@string/title_can_debug"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_edit"
+                app:tint="@color/dashboard_on_surface_variant" />
+
+            <ImageButton
+                android:id="@+id/btnToggleTheme"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="12dp"
+                android:background="@drawable/glass_panel"
+                android:elevation="4dp"
+                android:padding="8dp"
+                android:contentDescription="@string/toggle_dark_mode"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_dark_mode"
+                app:tint="@color/dashboard_on_surface_variant" />
+
+            <!-- CAN read/write monitor overlay -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="12dp"
+                android:background="@drawable/glass_panel"
+                android:backgroundTint="@color/glass_bg"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/title_can_monitor"
+                        android:textColor="@color/dashboard_on_surface_variant"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.04"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/tvCanStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NULL"
+                        android:textColor="@color/warning_red"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textAllCaps="true" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvCanRx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="monospace"
+                    android:text=""
+                    android:textColor="@color/electric_blue"
+                    android:textSize="12sp"
+                    android:maxLines="5"
+                    android:minLines="1"
+                    android:ellipsize="none" />
+
+                <TextView
+                    android:id="@+id/tvCanTx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:text=""
+                    android:textColor="@color/neon_green"
+                    android:textSize="12sp"
+                    android:maxLines="5"
+                    android:minLines="1"
+                    android:ellipsize="none" />
+            </LinearLayout>
         </FrameLayout>
 
         <Space android:layout_width="18dp" android:layout_height="wrap_content" />
@@ -137,10 +232,8 @@
                                 android:id="@+id/ivFan"
                                 android:layout_width="44dp"
                                 android:layout_height="44dp"
-                                android:background="@drawable/glass_panel"
-                                android:elevation="2dp"
                                 android:padding="10dp"
-                                android:src="@android:drawable/ic_menu_compass"
+                                android:src="@drawable/ic_fan"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -293,8 +386,8 @@
                                 android:layout_height="wrap_content"
                                 android:scaleX="1.3"
                                 android:scaleY="1.3"
-                                android:thumbTint="@color/dashboard_primary"
-                                android:trackTint="@color/dashboard_surface_container" />
+                                android:thumbTint="@color/white"
+                                android:trackTint="@color/switch_track_tint" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -335,6 +428,28 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/tvLightState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="@string/light_state_off"
+                            android:textColor="@color/dashboard_on_surface_variant"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvLightMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:text="@string/light_mode_solid"
+                            android:textColor="@color/dashboard_on_surface_variant"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:id="@+id/tvLightError"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -351,119 +466,115 @@
 
                     <Space android:layout_width="wrap_content" android:layout_height="14dp" />
 
-                    <!-- VIN + advanced settings, combined into one card -->
+                    <!-- VIN ID card -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/glass_panel"
                         android:elevation="6dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:padding="14dp">
+                            android:gravity="center_vertical">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:text="@string/title_vin_id"
-                                android:textColor="@color/dashboard_on_surface_variant"
-                                android:textSize="13sp" />
-
-                            <TextView
-                                android:id="@+id/tvVinId"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="monospace"
-                                android:gravity="end"
-                                android:text="VNX893B472910M"
-                                android:textColor="@color/dashboard_on_surface"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:maxLines="1" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/outline_variant" />
-
-                        <LinearLayout
-                            android:id="@+id/rowAdvancedToggle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?attr/selectableItemBackground"
-                            android:padding="14dp">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/title_advanced_settings"
                                 android:textColor="@color/dashboard_on_surface"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
-                            <ImageView
-                                android:id="@+id/ivAdvancedChevron"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:src="@android:drawable/arrow_down_float"
-                                app:tint="@color/dashboard_on_surface_variant" />
-                        </LinearLayout>
-
-                        <!-- collapsed by default: android:visibility="gone" toggled in code -->
-                        <LinearLayout
-                            android:id="@+id/advancedSettingsContent"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingHorizontal="14dp"
-                            android:paddingBottom="14dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/title_warning_threshold"
-                                android:textColor="@color/dashboard_on_surface_variant"
-                                android:textSize="13sp" />
-
-                            <EditText
-                                android:id="@+id/etThreshold"
-                                android:layout_width="match_parent"
-                                android:layout_height="52dp"
-                                android:layout_marginTop="8dp"
-                                android:background="@drawable/glass_panel"
-                                android:backgroundTint="@color/dashboard_background"
-                                android:hint="@string/hint_threshold"
-                                android:inputType="number"
-                                android:paddingHorizontal="14dp"
-                                android:textColor="@color/dashboard_on_surface"
-                                android:textColorHint="@color/dashboard_on_surface_variant"
-                                android:textSize="16sp" />
 
                             <Button
-                                android:id="@+id/btnSave"
-                                android:layout_width="match_parent"
-                                android:layout_height="52dp"
-                                android:layout_marginTop="12dp"
-                                android:elevation="4dp"
-                                android:background="@drawable/gradient_button"
-                                android:text="@string/btn_save"
+                                android:id="@+id/btnReadVin"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/glass_panel"
+                                android:backgroundTint="@color/dashboard_surface_container"
+                                android:paddingHorizontal="18dp"
+                                android:paddingVertical="8dp"
+                                android:text="@string/btn_read_vin"
+
                                 android:textColor="#FFFFFF"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvVinId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/vin_not_read"
+                            android:textColor="@color/dashboard_on_surface_variant"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+
+                    <Space android:layout_width="wrap_content" android:layout_height="14dp" />
+
+                    <!-- Warning threshold card -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/glass_panel"
+                        android:elevation="6dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_warning_threshold"
+                            android:textColor="@color/dashboard_on_surface"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etThreshold"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/glass_panel"
+                            android:backgroundTint="@color/dashboard_background"
+                            android:hint="@string/hint_threshold"
+                            android:inputType="number"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="@color/dashboard_on_surface"
+                            android:textColorHint="@color/dashboard_on_surface_variant"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btnSave"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_marginTop="12dp"
+                            android:elevation="4dp"
+                            android:background="@drawable/gradient_button"
+                            android:text="@string/btn_save"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvThresholdResult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
                     </LinearLayout>
 
                 </LinearLayout>
