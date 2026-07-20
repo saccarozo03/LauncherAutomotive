@@ -3,7 +3,7 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <!-- 3-blade fan, blade repeated via rotated groups around the hub -->
+
     <group android:pivotX="12" android:pivotY="12" android:rotation="0">
         <path
             android:fillColor="#FF000000"

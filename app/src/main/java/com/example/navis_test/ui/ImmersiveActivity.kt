@@ -1,11 +1,10 @@
-package com.example.navis_test
+package com.example.navis_test.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 
-// Ẩn status bar + navigation bar hệ thống, dùng chung cho mọi màn hình kiosk fullscreen.
 abstract class ImmersiveActivity : AppCompatActivity() {
 
     protected fun hideSystemBars() {

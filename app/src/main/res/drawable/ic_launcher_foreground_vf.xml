@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Logo VinFast đặt giữa, thu vào ~66dp trong khung foreground 108dp để nằm trọn
-     vùng an toàn của adaptive icon (không bị mặt nạ tròn/bo cắt mất chữ VINFAST). -->
+
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:width="66dp"

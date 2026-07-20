@@ -33,25 +33,11 @@
     <string name="light_mode_solid">Đèn luôn sáng</string>
     <string name="light_mode_blink">Đèn nhấp nháy</string>
 
-    <!-- CAN monitor + debug screen -->
     <string name="title_can_monitor">CAN Monitor</string>
     <string name="can_rx_placeholder">RX  --</string>
     <string name="can_tx_placeholder">TX  --</string>
+    <string name="status_connecting">Đang kết nối…</string>
     <string name="status_online">ONLINE</string>
     <string name="status_offline">không kết nối</string>
     <string name="status_error">LỖI</string>
-    <string name="title_can_debug">Gỡ lỗi CAN</string>
-    <string name="title_can_send">Gửi gói tin</string>
-    <string name="title_can_log">Nhật ký CAN</string>
-    <string name="hint_can_id">CAN ID (hex), VD: 3A6</string>
-    <string name="hint_can_data">DATA (hex, cách nhau bởi dấu cách), VD: 01 02 03</string>
-    <string name="label_extended_frame">Khung mở rộng (29-bit)</string>
-    <string name="btn_can_send">GỬI</string>
-    <string name="btn_clear_log">XOÁ LOG</string>
-    <string name="btn_start_reading">BẮT ĐẦU ĐỌC</string>
-    <string name="btn_stop_reading">DỪNG ĐỌC</string>
-    <string name="error_can_id_invalid">CAN ID không hợp lệ</string>
-    <string name="error_can_data_invalid">DATA không hợp lệ</string>
-    <string name="msg_can_send_failed">Gửi gói tin thất bại</string>
-    <string name="btn_back">Quay lại</string>
 </resources>

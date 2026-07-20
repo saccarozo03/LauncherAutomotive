@@ -3,9 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Liquid Glass Dashboard Colors (light mode) -->
-    <color name="purple_500">#FF0A84FF</color> <!-- primary glass gradient start (system blue) -->
-    <color name="purple_700">#FF5E5CE6</color> <!-- primary glass gradient end (indigo) -->
+    <color name="purple_500">#FF0A84FF</color>
+    <color name="purple_700">#FF5E5CE6</color>
     <color name="teal_200">#FF5E5CE6</color>
     <color name="teal_700">#FF3634A3</color>
 
@@ -17,10 +16,10 @@
     <color name="dashboard_on_surface_variant">#6E6E73</color>
     <color name="neon_green">#30D158</color>
     <color name="electric_blue">#32ADE6</color>
-    <color name="glass_bg">#B3FFFFFF</color> <!-- translucent white, ~70% opacity, lets backdrop bleed through -->
+    <color name="glass_bg">#B3FFFFFF</color>
     <color name="glass_sheen_start">#40FFFFFF</color>
     <color name="glass_sheen_end">#00FFFFFF</color>
     <color name="outline_variant">#DCE2EC</color>
     <color name="warning_red">#FF453A</color>
-    <color name="switch_track_off">#9298A6</color> <!-- darker gray so the toggle stands out off the light glass background -->
+    <color name="switch_track_off">#9298A6</color>
 </resources>

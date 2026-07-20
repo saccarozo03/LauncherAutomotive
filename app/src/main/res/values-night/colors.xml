@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Liquid Glass Dashboard Colors (DARK mode) — override cùng tên với values/colors.xml.
-         Mọi layout tham chiếu @color/dashboard_* + glass_panel/fuel_progress tự đổi theo. -->
 
-    <!-- Nền & bề mặt: tối, xanh-tím nhẹ cho hợp tông "aurora" -->
     <color name="dashboard_background">#0E1116</color>
     <color name="dashboard_surface">#1A1D23</color>
     <color name="dashboard_surface_container">#262A31</color>
 
-    <!-- Chữ: sáng trên nền tối -->
     <color name="dashboard_on_surface">#ECEDEF</color>
     <color name="dashboard_on_surface_variant">#9AA0A9</color>
 
-    <!-- Kính mờ: nền tối trong suốt ~70% để lộ backdrop, sheen sáng dịu -->
     <color name="glass_bg">#B31C2029</color>
     <color name="glass_sheen_start">#26FFFFFF</color>
     <color name="glass_sheen_end">#00FFFFFF</color>
     <color name="outline_variant">#333842</color>
 
-    <!-- Track của switch khi tắt: xám đậm cho nổi trên kính tối -->
     <color name="switch_track_off">#4A4F59</color>
 
-    <!-- Màu nhấn giữ nguyên (đã hợp cả nền tối): neon_green, electric_blue,
-         purple_500/700, warning_red, dashboard_primary. -->
 </resources>

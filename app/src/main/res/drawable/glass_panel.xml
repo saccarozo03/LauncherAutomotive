@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base frosted glass fill -->
+
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/glass_bg" />
@@ -10,7 +10,7 @@
                 android:color="@color/outline_variant" />
         </shape>
     </item>
-    <!-- Specular sheen: brighter toward the top edge, like light catching glass -->
+
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="12dp" />

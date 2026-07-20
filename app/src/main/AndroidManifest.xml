@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navis_test">
         <activity
-            android:name=".IntroActivity"
+            android:name=".ui.intro.IntroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DebugActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false" />
     </application>
 

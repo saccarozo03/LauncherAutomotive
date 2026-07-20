@@ -7,7 +7,6 @@
     android:background="@drawable/aurora_background"
     tools:context=".MainActivity">
 
-    <!-- Main Content: car model ~60%, status+control+settings ~40% -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -18,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Center: car model, ~60% width -->
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -36,23 +34,9 @@
                 android:src="@drawable/ferrari" />
 
             <ImageButton
-                android:id="@+id/btnOpenCanDebug"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="top|end"
-                android:layout_margin="12dp"
-                android:background="@drawable/glass_panel"
-                android:elevation="4dp"
-                android:padding="8dp"
-                android:contentDescription="@string/title_can_debug"
-                android:scaleType="fitCenter"
-                android:src="@android:drawable/ic_menu_edit"
-                app:tint="@color/dashboard_on_surface_variant" />
-
-            <ImageButton
                 android:id="@+id/btnToggleTheme"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_gravity="top|start"
                 android:layout_margin="12dp"
                 android:background="@drawable/glass_panel"
@@ -63,7 +47,6 @@
                 android:src="@drawable/ic_dark_mode"
                 app:tint="@color/dashboard_on_surface_variant" />
 
-            <!-- CAN read/write monitor overlay -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,8 +79,8 @@
                         android:id="@+id/tvCanStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="NULL"
-                        android:textColor="@color/warning_red"
+                        android:text="@string/status_connecting"
+                        android:textColor="@color/can_status_text"
                         android:textSize="11sp"
                         android:textStyle="bold"
                         android:textAllCaps="true" />
@@ -109,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="monospace"
-                    android:text=""
+                    android:text="@string/can_rx_placeholder"
                     android:textColor="@color/electric_blue"
                     android:textSize="12sp"
                     android:maxLines="5"
@@ -122,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:fontFamily="monospace"
-                    android:text=""
+                    android:text="@string/can_tx_placeholder"
                     android:textColor="@color/neon_green"
                     android:textSize="12sp"
                     android:maxLines="5"
@@ -133,7 +116,6 @@
 
         <Space android:layout_width="18dp" android:layout_height="wrap_content" />
 
-        <!-- Right: status + light control + diagnostics/settings, ~40% width -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -161,7 +143,6 @@
                         android:letterSpacing="0.04"
                         android:textAllCaps="true" />
 
-                    <!-- Door + Climate mini-cards, side by side -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -182,11 +163,11 @@
                                 android:background="@drawable/glass_panel"
                                 android:elevation="2dp"
                                 android:padding="10dp"
-                                android:src="@android:drawable/ic_lock_lock"
+                                android:src="@drawable/ic_door_lock_state"
+                                app:tint="@color/door_status_tint"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:tint="@color/neon_green" />
+                                app:layout_constraintBottom_toBottomOf="parent" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -211,7 +192,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:text="@string/door_locked"
-                                    android:textColor="@color/neon_green"
+                                    android:textColor="@color/door_status_tint"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
                                     android:maxLines="1" />
@@ -237,7 +218,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:tint="@color/electric_blue" />
+                                app:tint="@color/climate_status_tint" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -261,8 +242,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
-                                    android:text="@string/climate_on"
-                                    android:textColor="@color/electric_blue"
+                                    android:text="@string/climate_off"
+                                    android:textColor="@color/climate_status_tint"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
                                     android:maxLines="1" />
@@ -272,7 +253,6 @@
 
                     <Space android:layout_width="wrap_content" android:layout_height="14dp" />
 
-                    <!-- Fuel: value + status on one row, bar below -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -326,7 +306,7 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_centerVertical="true"
                                 android:text="@string/fuel_status_normal"
-                                android:textColor="@color/neon_green"
+                                android:textColor="@color/fuel_status_text"
                                 android:textSize="13sp"
                                 android:textStyle="bold"
                                 android:maxLines="1" />
@@ -355,7 +335,6 @@
                         android:letterSpacing="0.04"
                         android:textAllCaps="true" />
 
-                    <!-- Light control card -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -400,29 +379,29 @@
                             android:orientation="horizontal"
                             android:padding="4dp">
 
-                            <Button
+                            <androidx.appcompat.widget.AppCompatButton
                                 android:id="@+id/btnNormal"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:minHeight="48dp"
-                                android:background="@drawable/glass_panel"
-                                android:backgroundTint="@color/dashboard_surface_container"
+                                android:background="@drawable/mode_button_bg"
                                 android:text="@string/btn_normal"
-                                android:textColor="@color/dashboard_on_surface"
+                                android:textColor="@color/mode_button_text"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
 
-                            <Button
+                            <androidx.appcompat.widget.AppCompatButton
                                 android:id="@+id/btnBlink"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:minHeight="48dp"
+                                android:background="@drawable/mode_button_bg"
                                 android:text="@string/btn_blink"
-                                android:textColor="@color/dashboard_on_surface_variant"
+                                android:textColor="@color/mode_button_text"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -434,7 +413,7 @@
                             android:layout_marginTop="10dp"
                             android:gravity="center"
                             android:text="@string/light_state_off"
-                            android:textColor="@color/dashboard_on_surface_variant"
+                            android:textColor="@color/light_state_text"
                             android:textSize="13sp"
                             android:textStyle="bold" />
 
@@ -445,7 +424,7 @@
                             android:layout_marginTop="2dp"
                             android:gravity="center"
                             android:text="@string/light_mode_solid"
-                            android:textColor="@color/dashboard_on_surface_variant"
+                            android:textColor="@color/light_mode_text"
                             android:textSize="13sp"
                             android:textStyle="bold" />
 
@@ -466,7 +445,6 @@
 
                     <Space android:layout_width="wrap_content" android:layout_height="14dp" />
 
-                    <!-- VIN ID card -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -522,7 +500,6 @@
 
                     <Space android:layout_width="wrap_content" android:layout_height="14dp" />
 
-                    <!-- Warning threshold card -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -572,6 +549,7 @@
                             android:layout_marginTop="10dp"
                             android:padding="10dp"
                             android:gravity="center"
+                            android:textColor="@color/threshold_result_text"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:visibility="gone" />
